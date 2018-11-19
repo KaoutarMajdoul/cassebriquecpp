@@ -12,7 +12,7 @@ using namespace std ;
 // {
 //   //Structure dans laquelle sera mit les informations du terminal
 //   struct winsize w;
-//   //Recuperation des informations
+//   //Recuperghghgation des informations
 //   ioctl(0, TIOCGWINSZ, &w);
 //   //On affiche pour l'exemple
 //   // printf ("lines %d\n", w.ws_row);
