@@ -38,6 +38,7 @@ void myprogram(){
   int h=20,w=70;
   Window menu(3,20,75,20);
   Window plateau(h,w,1,6);
+  
   menu.setCouleurBordure(BRED);
   plateau.setCouleurBordure(BBLUE);
   
@@ -59,39 +60,56 @@ void myprogram(){
     {
       switch (ch) {
       case '1':
-	col=BMAGENTA;
-	break;
+  col=BMAGENTA;
+  break;
       case '2':
-	col=WCYAN;
-	break;
+  col=WCYAN;
+  break;
       case 'c':
-	plateau.clear();
-	break;
+  plateau.clear();
+  break;
  //      case KEY_UP:
-	// plateau.print(x,y,' ');
-	// plateau.print(x,--y,p,col);
-	// break;
+  // plateau.print(x,y,' ');
+  // plateau.print(x,--y,p,col);
+  // break;
  //      case KEY_DOWN:
-	// plateau.print(x,y,' ');
-	// plateau.print(x,++y,p,col);
-	// break;
+  // plateau.print(x,y,' ');
+  // plateau.print(x,++y,p,col);
+  // break;
       case KEY_LEFT:
-	plateau.print(x,y,' ');
-	plateau.print(--x,y,p,col);
-	break;
+      if(x>0){
+       plateau.clear();
+      
+plateau.print(bx,by,balle,colb); 
+  plateau.print(x,y,' ');
+  plateau.print(--x,y,p,col); }
+  break;
       case KEY_RIGHT:
-	plateau.print(x,y,' ');
-	plateau.print(++x,y,p,col);
-	break;
+  if(x+p.size() < w){
+       plateau.clear();
+plateau.print(bx,by,balle,colb); 
+  plateau.print(x,y,' ');
+
+  plateau.print(++x,y,p,col); }
+  break;
+
+  case ' ':
+      if(by > 0){
+  plateau.clear();
+plateau.print(x,y,p,col);
+  plateau.print(bx,--by,balle,colb); 
+   }
+
+  break;
       case '\n':
-	x=w/2,y=h/2;
-	plateau.print(x,y,p,col);
-	break;
+  x=w/2,y=h/2;
+  plateau.print(x,y,p,col);
+  break;
       case '\t':
-	Color tmp= menu.getCouleurBordure();
-	menu.setCouleurBordure(plateau.getCouleurBordure());
-	plateau.setCouleurBordure(tmp);
-	break;
+  Color tmp= menu.getCouleurBordure();
+  menu.setCouleurBordure(plateau.getCouleurBordure());
+  plateau.setCouleurBordure(tmp);
+  break;
       }
     }
 }
