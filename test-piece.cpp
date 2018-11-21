@@ -2,8 +2,10 @@
 #include <iostream>
 #include <string>
 #include <ncurses.h>
-
-
+#include <unistd.h>
+#include <cstdio>
+#include <sys/time.h>
+#include <chrono>
 
 
 using namespace std ;
@@ -36,13 +38,16 @@ using namespace std ;
 void myprogram(){
   int ch;
   int h=20,w=70;
-  Window menu(3,20,75,20);
+  Window menu(15,25,75,10);
+  //nb ligne, longueur,x,y
   Window plateau(h,w,1,6);
   
   menu.setCouleurBordure(BRED);
   plateau.setCouleurBordure(BBLUE);
   
   menu.print(1,1,"Tapez q pour quitter !!!",WBLUE);
+  menu.print(2,2,"TIMER : ",WBLUE);
+
   string p="XXXXXXXXXXXXXXXXXXXXXXXXX";
   int x=w/2-(p.size()/2),y=h-1;
 
@@ -94,18 +99,23 @@ plateau.print(bx,by,balle,colb);
   break;
 
   case ' ':
-      if(by > 0){
+      while(by > 0){        
   plateau.clear();
+
 plateau.print(x,y,p,col);
   plateau.print(bx,--by,balle,colb); 
-   }
+sleep(0.8);} 
 
   break;
       case '\n':
   x=w/2,y=h/2;
   plateau.print(x,y,p,col);
   break;
+
+
+
       case '\t':
+       
   Color tmp= menu.getCouleurBordure();
   menu.setCouleurBordure(plateau.getCouleurBordure());
   plateau.setCouleurBordure(tmp);
@@ -118,6 +128,7 @@ int main(){
 
 
   startProgramX();
+ 
   myprogram();
   stopProgramX();
   return 0;
