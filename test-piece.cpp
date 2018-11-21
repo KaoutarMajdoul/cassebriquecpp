@@ -6,6 +6,9 @@
 #include <cstdio>
 #include <sys/time.h>
 #include <chrono>
+#include <time.h>
+
+
 
 
 using namespace std ;
@@ -37,6 +40,7 @@ using namespace std ;
 
 void myprogram(){
   int ch;
+  
   int h=20,w=70;
   Window menu(15,25,75,10);
   //nb ligne, longueur,x,y
@@ -100,11 +104,29 @@ plateau.print(bx,by,balle,colb);
 
   case ' ':
       while(by > 0){        
-  plateau.clear();
-
+plateau.clear();
 plateau.print(x,y,p,col);
-  plateau.print(bx,--by,balle,colb); 
-sleep(0.8);} 
+plateau.print(bx,--by,balle,colb); 
+usleep(100000);
+
+// sleep(1);
+}  
+
+while (by < h-2){
+plateau.clear();
+plateau.print(x,y,p,col);
+plateau.print(bx,++by,balle,colb); 
+usleep(100000); }
+
+// case KEY_DOWN:
+//       while(by <= 0){        
+// plateau.clear();
+// plateau.print(x,y,p,col);
+// plateau.print(bx,++by,balle,colb); 
+// usleep(100000);
+
+// // sleep(1);
+// } 
 
   break;
       case '\n':
