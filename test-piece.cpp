@@ -65,8 +65,8 @@ init_briques(brique,briquey,briquex);
   Color colb = WRED;
   // plateau.print(x,y,p,col);
   // plateau.print(bx,by,balle,colb);
-   while((ch = getch()) != 'q')
- // while((ch = getch()) != 'q' && m!=0)
+  // while((ch = getch()) != 'q')
+ while((ch = getch()) != 'q' && m!=0)
      {
     switch (ch) {
       case ' ':
