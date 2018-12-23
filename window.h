@@ -5,6 +5,13 @@ extern "C" {
 #include <curses.h>
 }
 #include <string>
+#include<iostream>
+#include<curses.h>
+#include <ncurses.h>
+#include<fstream>
+#include<cstring>
+#include "window.h"
+using namespace std;
 
 // Ensemble de couleurs possibles (fond+texte)
 enum Color {
@@ -19,12 +26,20 @@ enum Color {
   BCYAN,   // couleur fond = cyan,    couleur texte = noir
   BBLUE,   // couleur fond = bleu,    couleur texte = noir
   BYELLOW, // couleur fond = jaune,   couleur texte = noir
-  BGREEN,  // couleur fond = vert,    couleur texte = noir 
+  BGREEN,  // couleur fond = vert,    couleur texte = noir
   BMAGENTA,// couleur fond = magenta, couleur texte = noir
   BRED,    // couleur fond = rouge,   couleur texte = noir
 };
 
 
+void moveBallx(int x, bool &minus);
+void moveBally(int y, bool &minus);
+void sortScore(int score[], string names[]);
+void printScore(int score[], string names[]);
+int overallScore(int block, int miss);
+int exp(int a, int b);
+void init_paddle(int paddle, int paddley, int paddlex);
+void init_briques(int brique, int briquey, int briquex);
 
 // fonction pour demarrer le mode console graphique
 void startProgramX();
@@ -54,16 +69,16 @@ class Window {
   void print(int x, int y, std::string s, Color c) const;
   void print(int x, int y, char s, Color c) const;
   void print(int x, int y, std::string s) const;
-  void print(int x, int y, char s) const; 
+  void print(int x, int y, char s) const;
 
-  
+
   // accesseurs
-  int getX() const;        // récupère l'abscisse du coin supérieur gauche de la fenêtre 
-  int getY() const;        // récupère l'ordonnée du coin supérieur gauche de la fenêtre 
+  int getX() const;        // récupère l'abscisse du coin supérieur gauche de la fenêtre
+  int getY() const;        // récupère l'ordonnée du coin supérieur gauche de la fenêtre
   int getHauteur() const ; // récupère la hauteur de la fenêtre
   int getLargeur() const ; // récupère la largeur de la fenêtre
 
- 
+
   Color getCouleurBordure() const; // récupère la couleur de la bordure
   Color getCouleurFenetre() const; // récupère la couleur de la fenêtre
   void setCouleurBordure(Color);   // modifie la couleur de la bordure
@@ -72,13 +87,6 @@ class Window {
   void clear() const; // enleve tout le contenu de la fenêtre
 
 };
-
-
-
-
-
-
-
 
 
 
