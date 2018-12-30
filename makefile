@@ -1,25 +1,14 @@
 CXX= g++
 
 
-all : window
+all : jeu
+
+# window.o: window.cpp window.h
+# 	$(CXX) -c window.cpp -lncurses
+
+JeuCB.o : JeuCB.cpp
+	$(CXX) -c JeuCB.cpp -lncurses
 
 
-window: window.o test-piece.o  
-	$(CXX) window.o test-piece.o -o window -lncurses
-
-
-
-
-window.o: window.cpp window.h 
-	$(CXX) -c window.cpp -lncurses
-
-
-
-test-piece.o: test-piece.cpp window.h 
-	$(CXX) -c test-piece.cpp -lncurses
-
-
-
-
-
-	
+jeu: JeuCB.o
+		$(CXX) JeuCB.o -o jeu -lncurses
