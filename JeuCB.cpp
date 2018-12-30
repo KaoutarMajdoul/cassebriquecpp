@@ -10,8 +10,8 @@
 #include<curses.h>
 #include<fstream>
 #include<cstring>
-#include <fstream>
-
+// #include <fstream>
+// #include "window.h"
 using namespace std;
 
 #define SCREEN_HEIGHT 23
@@ -21,10 +21,14 @@ using namespace std;
 #define SPACE 5
 #define NBVIE 7
 
-void init_curses(); 
+void init_curses();
 void finish_curses();
 void moveBallx(int x, bool &minus);
 void moveBally(int y, bool &minus);
+
+
+  // Window menu(15,26,75,10);
+
 
 struct Block{
 	int x;
@@ -32,7 +36,7 @@ struct Block{
 };
 
 int main(int argc, char **argv) {
-    
+
     if(argv[1] != NULL){
   printf("PARAMETRE : %s  \n",argv[1] );
 }
@@ -47,7 +51,7 @@ printf("Début partie (%i vies) \n", NBVIE );
   sleep(2);
 
 
-    int vie=NBVIE; //nombre de vie(balle)
+  int vie=NBVIE; //nombre de vie(balle)
 	int paddlex=4, paddley=23, paddle;
 	int ballx=paddlex+PADDLE_LENGTH/2, bally=SCREEN_HEIGHT-2;
 	Block A, B, C, D, E, F;
@@ -73,12 +77,12 @@ printf("Début partie (%i vies) \n", NBVIE );
 	ofstream fout;
 	// cout<<"enter your name"<<endl;
  	// cin>>name;
-	
+
 	init_curses();
 	for (paddle = 0; paddle < PADDLE_LENGTH+1; paddle++) {
 		mvaddch(paddley, paddlex+paddle, 'X');
 	}
-	
+		printf("Score: %i \n", score);
 	while ((ch = getch()) != 'q' && vie!=0 && nbBriques!=0) {
 
 		if(touchA==0){
@@ -197,9 +201,10 @@ printf("Début partie (%i vies) \n", NBVIE );
 				F.y=0;
 				if(touchF==2){nbBriques--; touchF++; score+=5;}
 		}
-		
+
         mvaddstr(1,1,"Tapez q pour quitter!");
-        
+				mvprintw(2,1,"Score :  %d \n",score);
+				mvprintw(3,1,"Vie(s) :  %d \n",vie);
         switch(ch) {
     		case KEY_LEFT:
 		       	if (paddlex == 0) {
@@ -222,20 +227,20 @@ printf("Début partie (%i vies) \n", NBVIE );
 		            break;
 		        }
     	}
-		
-		
+
+
 		mvaddch(bally,ballx,' ');
-		
+
         if (ballx == 0 && bally == 0) { //la balle touche le coin supérieur gauche
             moveBally(bally, yMinus);
             moveBallx(ballx, xMinus);
         }
-        else 
+        else
             if (bally == SCREEN_HEIGHT-1 && ballx == 0) { //la balle touche le coin inférieur gauche
             moveBallx(ballx, xMinus);
             moveBally(bally, yMinus);
-        }       
-		else 
+        }
+		else
             if (ballx == SCREEN_WIDTH || ballx == 0) { //la balle touche le côté gauche ou droit
 			moveBallx(ballx, xMinus);
 		}
@@ -243,14 +248,14 @@ printf("Début partie (%i vies) \n", NBVIE );
             if (ballx >= paddlex && ballx <= (paddlex+PADDLE_LENGTH)) { //la balle touche le paddle
                 moveBallx(ballx, xMinus);
                 moveBally(bally, yMinus);
-                
+
             }
             else{ //la balle ne touche pas le paddle
                 moveBallx(ballx, xMinus);
                 moveBally(bally, yMinus);
                 vie--; //le nombre de balle(vie) diminue
             }
-        }	
+        }
 		else if (bally == 0) { //la balle touche le haut
 			moveBally(bally, yMinus);
 		}
@@ -358,9 +363,9 @@ printf("Début partie (%i vies) \n", NBVIE );
         	score++;
         	touchF++;
 		}
-		
-		
-		
+
+
+
 		if (xMinus && !yMinus) {
 			ballx--;
 			bally++;
@@ -378,7 +383,7 @@ printf("Début partie (%i vies) \n", NBVIE );
 			bally++;
 		}
 		mvaddch(bally,ballx,'*');
-    
+
 	}
 	finish_curses();
 	printf("Score: %i \n", score);
@@ -442,15 +447,26 @@ if(choix > 4){
   printf("Le choix numéro : %d n'existe pas.\n", choix);
 }
 	return 0;
-	
+
 }
 void init_curses() {
-	initscr();     
-    keypad(stdscr, TRUE);  
-    nonl();         
-    cbreak();       
-    noecho(); 
-    halfdelay(1);
+	// initscr();
+  //   keypad(stdscr, TRUE);
+  //   nonl();
+  //   cbreak();
+  //   noecho();
+  //   halfdelay(1);
+	//
+	initscr();             // initialize curses
+
+	cbreak();              // pass key presses to program, but not signals
+	noecho();              // don't echo key presses to screen
+	keypad(stdscr, TRUE);  // allow arrow keys
+	timeout(0);            // no blocking on getch()
+	curs_set(0);           // set the cursor to invisible
+
+		halfdelay(1);
+			nonl();
 }
 void finish_curses() {
 	endwin();
@@ -462,7 +478,7 @@ void moveBallx(int x, bool &minus) {
 	if (x == 0) {
 		minus = false;
 	}
-	
+
 	else if (x == SCREEN_WIDTH) {
 		minus = true;
 	}
@@ -473,5 +489,5 @@ void moveBally(int y, bool &minus) {
 	}
 	else if (y == SCREEN_HEIGHT-1) {
 		minus = true;
-	}	
+	}
 }
