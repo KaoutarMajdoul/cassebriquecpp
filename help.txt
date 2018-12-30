@@ -1,1 +1,6 @@
-AIDE DU JEU : 
+AIDE DU JEU :
+Le jeu est composé d'un nombre de briques qu'il faut détruire à l'aide de la balle (représenté par le caractère *).
+Vous aurez 7 vies pour compléter le jeu.
+Vous pourrez déplacer le paddle (représenter par une chaine de X) à l'aide des flèches gauches et droites de votre clavier.
+Pour quitter le jeu, appuyez sur q (minuscule!).
+
