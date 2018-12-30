@@ -15,7 +15,7 @@
 using namespace std;
 
 #define SCREEN_HEIGHT 23
-#define SCREEN_WIDTH 79
+#define SCREEN_WIDTH 50
 #define PADDLE_LENGTH 15
 #define BLOCK_LENGTH 10
 #define SPACE 5
@@ -26,14 +26,53 @@ void finish_curses();
 void moveBallx(int x, bool &minus);
 void moveBally(int y, bool &minus);
 
+enum Color {
+  WBLACK,  // couleur fond = noir ,   couleur texte = blanc
+  WCYAN,   // couleur fond = cyan,    couleur texte = blanc
+  WBLUE,   // couleur fond = bleu,    couleur texte = blanc
+  WYELLOW, // couleur fond = jaune,   couleur texte = blanc
+  WGREEN,  // couleur fond = vert,    couleur texte = blanc
+  WMAGENTA,// couleur fond = magenta, couleur texte = blanc
+  WRED,	   // couleur fond = rouge,   couleur texte = blanc
+  BWHITE,  // couleur fond = blanc,   couleur texte = blanc
+  BCYAN,   // couleur fond = cyan,    couleur texte = noir
+  BBLUE,   // couleur fond = bleu,    couleur texte = noir
+  BYELLOW, // couleur fond = jaune,   couleur texte = noir
+  BGREEN,  // couleur fond = vert,    couleur texte = noir
+  BMAGENTA,// couleur fond = magenta, couleur texte = noir
+  BRED,    // couleur fond = rouge,   couleur texte = noir
+};
 
-  // Window menu(15,26,75,10);
+
+	void init_colors(void)
+	{
+
+	  start_color();
+	  init_pair(WBLACK,   COLOR_WHITE, COLOR_BLACK);
+	  init_pair(WCYAN,    COLOR_WHITE, COLOR_CYAN);
+	  init_pair(WBLUE,    COLOR_WHITE, COLOR_BLUE);
+	  init_pair(WYELLOW,  COLOR_WHITE, COLOR_YELLOW);
+	  init_pair(WGREEN,   COLOR_WHITE, COLOR_GREEN);
+	  init_pair(WMAGENTA, COLOR_WHITE, COLOR_MAGENTA);
+	  init_pair(WRED,     COLOR_WHITE, COLOR_RED);
+	  init_pair(BWHITE,   COLOR_BLACK, COLOR_WHITE);
+	  init_pair(BCYAN,    COLOR_BLACK, COLOR_CYAN);
+	  init_pair(BBLUE,    COLOR_BLACK, COLOR_BLUE);
+	  init_pair(BYELLOW,  COLOR_BLACK, COLOR_YELLOW);
+	  init_pair(BGREEN,   COLOR_BLACK, COLOR_GREEN);
+	  init_pair(BMAGENTA, COLOR_BLACK, COLOR_MAGENTA);
+	  init_pair(BRED,     COLOR_BLACK, COLOR_RED);
+	}
 
 
 struct Block{
 	int x;
 	int y;
 };
+
+
+
+
 
 int main(int argc, char **argv) {
 
@@ -87,12 +126,14 @@ printf("Début partie (%i vies) \n", NBVIE );
 
 		if(touchA==0){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(A.y, A.x+brique, 'T');
+				mvaddch(A.y, A.x+brique, ' ');
+				mvchgat(A.y, A.x, 11, ' ', WRED, NULL);
 			}
 		}
 		else if(touchA==1){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(A.y, A.x+brique, '&');
+				mvaddch(A.y, A.x+brique, ' ');
+				mvchgat(A.y, A.x, 11, ' ', BGREEN, NULL);
 			}
 		}
 		else if(touchA>1){
@@ -107,12 +148,14 @@ printf("Début partie (%i vies) \n", NBVIE );
 
 		if(touchB==0){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(B.y, B.x+brique, 'T');
+				mvaddch(B.y, B.x+brique, ' ');
+					mvchgat(B.y, B.x, 11, ' ', WRED, NULL);
 			}
 		}
 		else if(touchB==1){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(B.y, B.x+brique, '&');
+				mvaddch(B.y, B.x+brique, ' ');
+					mvchgat(B.y, B.x, 11, ' ', BGREEN, NULL);
 			}
 		}
 		else if(touchB>1){
@@ -127,12 +170,14 @@ printf("Début partie (%i vies) \n", NBVIE );
 
 		if(touchC==0){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(C.y, C.x+brique, 'T');
+				mvaddch(C.y, C.x+brique, ' ');
+						mvchgat(C.y, C.x, 11, ' ', BRED, NULL);
 			}
 		}
 		else if(touchC==1){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(C.y, C.x+brique, '&');
+				mvaddch(C.y, C.x+brique, ' ');
+				mvchgat(C.y, C.x, 11, ' ', BGREEN, NULL);
 			}
 		}
 		else if(touchC>1){
@@ -145,12 +190,14 @@ printf("Début partie (%i vies) \n", NBVIE );
 		}
 		if(touchD==0){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(D.y, D.x+brique, 'T');
+				mvaddch(D.y, D.x+brique, ' ');
+				mvchgat(D.y, D.x, 11, ' ', BRED, NULL);
 			}
 		}
 		else if(touchD==1){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(D.y, D.x+brique, '&');
+				mvaddch(D.y, D.x+brique, ' ');
+				mvchgat(D.y, D.x, 11, ' ', BGREEN, NULL);
 			}
 		}
 		else if(touchD>1){
@@ -165,12 +212,14 @@ printf("Début partie (%i vies) \n", NBVIE );
 
 		if(touchE==0){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(E.y, E.x+brique, 'T');
+				mvaddch(E.y, E.x+brique, ' ');
+				mvchgat(E.y, E.x, 11, ' ', BRED, NULL);
 			}
 		}
 		else if(touchE==1){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(E.y, E.x+brique, '&');
+				mvaddch(E.y, E.x+brique, ' ');
+				mvchgat(E.y, E.x, 11, ' ', BGREEN, NULL);
 			}
 		}
 		else if(touchE>1){
@@ -185,12 +234,14 @@ printf("Début partie (%i vies) \n", NBVIE );
 
 		if(touchF==0){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(F.y, F.x+brique, 'T');
+				mvaddch(F.y, F.x+brique, ' ');
+				mvchgat(F.y, F.x, 11, ' ', BRED, NULL);
 			}
 		}
 		else if(touchF==1){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
-				mvaddch(F.y, F.x+brique, '&');
+				mvaddch(F.y, F.x+brique, ' ');
+				mvchgat(F.y, F.x, 11, ' ', BGREEN, NULL);
 			}
 		}
 		else if(touchF>1){
@@ -201,10 +252,15 @@ printf("Début partie (%i vies) \n", NBVIE );
 				F.y=0;
 				if(touchF==2){nbBriques--; touchF++; score+=5;}
 		}
+start_color();
+	//
+	 WINDOW *win;
 
-        mvaddstr(1,1,"Tapez q pour quitter!");
-				mvprintw(2,1,"Score :  %d \n",score);
-				mvprintw(3,1,"Vie(s) :  %d \n",vie);
+        mvaddstr(1,53,"Tapez q pour quitter!");
+				mvprintw(2,53,"Score :  %d \n",score);
+				mvprintw(3,53,"Vie(s) :  %d \n",vie);
+mvvline(0,51, ACS_VLINE,50);
+
         switch(ch) {
     		case KEY_LEFT:
 		       	if (paddlex == 0) {
@@ -383,6 +439,7 @@ printf("Début partie (%i vies) \n", NBVIE );
 			bally++;
 		}
 		mvaddch(bally,ballx,'*');
+		mvchgat(bally, ballx,1 , ' ', BWHITE, NULL);
 
 	}
 	finish_curses();
@@ -464,7 +521,7 @@ void init_curses() {
 	keypad(stdscr, TRUE);  // allow arrow keys
 	timeout(0);            // no blocking on getch()
 	curs_set(0);           // set the cursor to invisible
-
+	init_colors();
 		halfdelay(1);
 			nonl();
 }
