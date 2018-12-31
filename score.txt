@@ -1,0 +1,12 @@
+
+ Le score du joueur : testscore pour le niveau 1 est : 47
+ ---------------------------------------
+ Le score du joueur : testscore2 pour le niveau 1 est : 43
+ ---------------------------------------
+ Le score du joueur : testscore3 pour le niveau 2 est : 56
+ ---------------------------------------
+ Le score du joueur : testscore3 pour le niveau 3 est : 1
+ ---------------------------------------
+
+ Le score du joueur : score3 pour le niveau 3 est : 1
+ ---------------------------------------
