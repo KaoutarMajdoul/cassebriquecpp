@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
   printf("PARAMETRE : %s  \n",argv[1] );
 }
 int choix ; string ligne ;
-printf("Taper sur : 1 pour commencer le jeu, 2 pour l'aide, 3 pour la version, 4 pour les auteurs.\n" );
+printf("Taper sur : 1 pour commencer, 2 pour l'aide, 3 pour la version, 4 pour les auteurs, 5 pour les meilleures scores\n" );
 cin >>choix ;
 // printf("CHOIX : %d\n",choix );
 
@@ -257,6 +257,16 @@ start_color();
 	 WINDOW *win;
 
         mvaddstr(1,53,"Tapez q pour quitter!");
+	  ifstream is ;
+	  ofstream os ;
+	  is . open ( "5meilleures.txt" ) ;
+	  os . open ( "5meilleures.txt" , ios :: out| ios :: app ) ;
+	  os << "Joueur=" << score << endl ; // remplacer joueur par la variable string nomjoueur
+	  os . close () ;
+	  is . close () ;
+	  
+	
+	
 				mvprintw(2,53,"Score :  %d \n",score);
 				mvprintw(3,53,"Vie(s) :  %d \n",vie);
 mvvline(0,51, ACS_VLINE,50);
@@ -497,10 +507,21 @@ case 2 : {
                cerr << "Impossible d'ouvrir le fichier !" << endl;}
              }
   break;
-
+  case 5 : {
+	  ifstream is ;
+	  is . open ( "5meilleures.txt" ) ;
+	  string nom ;
+	  string score ;
+	  while ( ! is . eof () ) {
+		  getline ( is , nom , '=' ) ;
+		  is >> score ;
+		  cout << nom << "        " << score << endl ;
+		  getline ( is , nom ) ;		  
+	  }
+  }
 
 }
-if(choix > 4){
+if(choix > 5){
   printf("Le choix numéro : %d n'existe pas.\n", choix);
 }
 	return 0;
