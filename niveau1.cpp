@@ -13,7 +13,11 @@
 #include<curses.h>
 #include<fstream>
 #include<cstring>
+#include <algorithm>
 #include<cstdlib>
+#include<functional>
+#include<list>
+#include<iterator>
 using namespace std ;
 #define SCREEN_HEIGHT 23
 #define SCREEN_WIDTH 50
@@ -28,6 +32,7 @@ struct Block{
 	int x;
 	int y;
 };
+
 
 
 void startNIVEAU1(){
@@ -60,15 +65,17 @@ printf("Début partie (%i vies) \n", NBVIE );
 	int nbBriques=6;
 	ifstream fin;
 	ofstream fout;
-	// cout<<"enter your name"<<endl;
- 	// cin>>name;
+
 
 	init_curses();
 	for (paddle = 0; paddle < PADDLE_LENGTH+1; paddle++) {
-		mvaddch(paddley, paddlex+paddle, 'X');
+		mvaddch(paddley, paddlex+paddle, ' ');
+    mvchgat(paddley, paddlex, 15, ' ', BBLUE, NULL);
 	}
 		printf("Score: %i \n", score);
 	while ((ch = getch()) != 'q' && vie!=0 && nbBriques!=0) {
+
+
 
 		if(touchA==0){
 			for (brique = 0; brique < BLOCK_LENGTH+1; brique++) {
@@ -199,15 +206,47 @@ printf("Début partie (%i vies) \n", NBVIE );
 				if(touchF==2){nbBriques--; touchF++; score+=5;}
 		}
 start_color();
-	//
-	 WINDOW *win;
 
-        mvaddstr(1,SCREEN_WIDTH+3,"Tapez q pour quitter!");
+
+
+    		mvvline(0,SCREEN_WIDTH+1, ACS_VLINE,SCREEN_WIDTH);
+        mvaddstr(1,SCREEN_WIDTH+3,"Tapez q pour quitter!\n");
 				mvprintw(2,SCREEN_WIDTH+3,"Score :  %d \n",score);
 				mvprintw(3,SCREEN_WIDTH+3,"Vie(s) :  %d \n",vie);
-			  mvvline(0,SCREEN_WIDTH+1, ACS_VLINE,SCREEN_WIDTH);
+	       // mvprintw(4,SCREEN_WIDTH+3,"Tapez s pour enregistrer la partie! \n",NULL);
+				 //
+				 //
+
+
+
+
+
+
+
+
+
 
         switch(ch) {
+//           case 's' :
+//
+//  scr_dump("sauvegarde");
+//
+//
+//           break;
+//
+// case 'r' :
+//
+//
+//
+// 	scr_restore("sauvegarde");
+//
+//
+//   break;
+
+
+
+
+
     		case KEY_LEFT:
 		       	if (paddlex == 0) {
 		            break;
@@ -215,7 +254,8 @@ start_color();
 		        else {
 		            mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
 		            paddlex--;
-		            mvaddch(paddley, paddlex, 'X');
+		            mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
+                mvchgat(paddley, paddlex, 15, ' ', BBLUE, NULL);
 		            break;
 		        }
 	    	case KEY_RIGHT:
@@ -225,7 +265,8 @@ start_color();
 		        else {
 		            mvaddch(paddley, paddlex, ' ');
 		            paddlex++;
-		            mvaddch(paddley, paddlex+PADDLE_LENGTH, 'X');
+		            mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
+                mvchgat(paddley, paddlex, 15, ' ', BBLUE, NULL);
 		            break;
 		        }
     	}
@@ -391,10 +432,12 @@ start_color();
 
 
 	finish_curses();
-	printf("Score: %i \n", score);
+	printf("Score : %i \n", score);
   ofstream myfile;
   myfile.open ("score.txt",std::fstream::out | std::fstream::app);
   myfile << score;
-  myfile <<  "\n ---------------------------------------" ;
+  myfile <<  "\n " ;
   myfile.close();
+
+
 }

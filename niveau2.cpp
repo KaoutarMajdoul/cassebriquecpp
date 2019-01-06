@@ -21,7 +21,7 @@ using namespace std ;
 #define PADDLE_LENGTH 10
 #define BLOCK_LENGTH 10
 #define SPACE 5
-#define NBVIE 3
+#define NBVIE 4
 
 
 
@@ -33,9 +33,6 @@ struct Block{
 
 
 
-void printniveau(int x){
-printf("hello niveau 2: %d\n", x);
-}
 
 
 void startNIVEAU2(){
@@ -98,7 +95,8 @@ ofstream fout;
 
 init_curses();
 for (paddle = 0; paddle < PADDLE_LENGTH+1; paddle++) {
-mvaddch(paddley, paddlex+paddle, 'X');
+	mvaddch(paddley, paddlex+paddle, ' ');
+	mvchgat(paddley, paddlex, 10, ' ', BBLUE, NULL);
 }
 printf("Score: %i \n", score);
 while ((ch = getch()) != 'q' && vie!=0 && nbBriques!=0) {
@@ -286,25 +284,27 @@ WINDOW *win;
 
     switch(ch) {
     case KEY_LEFT:
-        if (paddlex == 0) {
-            break;
-        }
-        else {
-            mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
-            paddlex--;
-            mvaddch(paddley, paddlex, 'X');
-            break;
-        }
-    case KEY_RIGHT:
-        if (paddlex+PADDLE_LENGTH == SCREEN_WIDTH) {
-            break;
-        }
-        else {
-            mvaddch(paddley, paddlex, ' ');
-            paddlex++;
-            mvaddch(paddley, paddlex+PADDLE_LENGTH, 'X');
-            break;
-        }
+		if (paddlex == 0) {
+				break;
+		}
+		else {
+				mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
+				paddlex--;
+				mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
+				mvchgat(paddley, paddlex, 10, ' ', BBLUE, NULL);
+				break;
+		}
+case KEY_RIGHT:
+		if (paddlex+PADDLE_LENGTH == SCREEN_WIDTH) {
+				break;
+		}
+		else {
+				mvaddch(paddley, paddlex, ' ');
+				paddlex++;
+				mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
+				mvchgat(paddley, paddlex, 10, ' ', BBLUE, NULL);
+				break;
+		}
   }
 
 
@@ -499,12 +499,11 @@ mvchgat(bally, ballx,1 , ' ', BWHITE, NULL);
 
 }
 finish_curses();
-printf("Score: %i \n", score);
-
+printf("Score : %i \n", score);
 ofstream myfile;
 myfile.open ("score.txt",std::fstream::out | std::fstream::app);
 myfile << score;
-myfile <<  "\n ---------------------------------------" ;
+myfile <<  "\n " ;
 myfile.close();
 
 }

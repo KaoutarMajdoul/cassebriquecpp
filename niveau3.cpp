@@ -20,7 +20,7 @@ using namespace std ;
 #define PADDLE_LENGTH 7
 #define BLOCK_LENGTH 10
 #define SPACE 5
-#define NBVIE 1
+#define NBVIE 2
 
 
 
@@ -45,7 +45,7 @@ B.x=E.x=20;
 C.x=F.x=35;
 A.y=B.y=C.y=7;
 D.y=E.y=F.y=12;
-G.x = 2;
+G.x = 9;
 G.y = 5;
 
 int score=0;
@@ -67,7 +67,8 @@ ofstream fout;
 
 init_curses();
 for (paddle = 0; paddle < PADDLE_LENGTH+1; paddle++) {
-mvaddch(paddley, paddlex+paddle, 'X');
+	mvaddch(paddley, paddlex+paddle, ' ');
+	mvchgat(paddley, paddlex, 7, ' ', BBLUE, NULL);
 }
 printf("Score: %i \n", score);
 while ((ch = getch()) != 'q' && vie!=0 && nbBriques!=0) {
@@ -234,25 +235,27 @@ WINDOW *win;
 
     switch(ch) {
     case KEY_LEFT:
-        if (paddlex == 0) {
-            break;
-        }
-        else {
-            mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
-            paddlex--;
-            mvaddch(paddley, paddlex, 'X');
-            break;
-        }
-    case KEY_RIGHT:
-        if (paddlex+PADDLE_LENGTH == SCREEN_WIDTH) {
-            break;
-        }
-        else {
-            mvaddch(paddley, paddlex, ' ');
-            paddlex++;
-            mvaddch(paddley, paddlex+PADDLE_LENGTH, 'X');
-            break;
-        }
+		if (paddlex == 0) {
+				break;
+		}
+		else {
+				mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
+				paddlex--;
+				mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
+				mvchgat(paddley, paddlex, 7, ' ', BBLUE, NULL);
+				break;
+		}
+case KEY_RIGHT:
+		if (paddlex+PADDLE_LENGTH == SCREEN_WIDTH) {
+				break;
+		}
+		else {
+				mvaddch(paddley, paddlex, ' ');
+				paddlex++;
+				mvaddch(paddley, paddlex+PADDLE_LENGTH, ' ');
+				mvchgat(paddley, paddlex, 7, ' ', BBLUE, NULL);
+				break;
+		}
   }
 
 
@@ -414,11 +417,12 @@ mvchgat(bally, ballx,1 , ' ', BWHITE, NULL);
 
 }
 finish_curses();
-printf("Score: %i \n", score);
+printf("Score : %i \n", score);
 ofstream myfile;
 myfile.open ("score.txt",std::fstream::out | std::fstream::app);
 myfile << score;
-myfile <<  "\n ---------------------------------------" ;
+myfile <<  "\n " ;
 myfile.close();
+
 
 }

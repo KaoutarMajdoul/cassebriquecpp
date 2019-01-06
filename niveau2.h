@@ -13,16 +13,9 @@ extern "C" {
 
 using namespace std;
 
-void printniveau(int x);
+
 void startNIVEAU2();
 
 
-class Niveau2{
-public :
-void printniveau(int x);
 
-
-~Niveau2();
-
-};
 #endif

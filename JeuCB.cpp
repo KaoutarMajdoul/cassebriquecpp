@@ -48,7 +48,7 @@ cin>>pseudo;
 
 
 
-printf("Taper sur : 1 pour commencer le jeu, 2 pour l'aide, 3 pour la version, 4 pour les auteurs.\n" );
+printf("Taper sur :\n 1 pour commencer le jeu,\n 2 pour l'aide, \n 3 pour la version, \n 4 pour les auteurs, \n 5 pour les derniers scores.\n" );
 cin >>choix ;
 
 
@@ -60,12 +60,12 @@ switch(choix){
 
 
 		ofstream myfile;
-		myfile.open ("score.txt", std::fstream::out | std::fstream::app);
-		myfile << "\n Le score du joueur : ";
+		myfile.open ("score.txt", fstream::out | fstream::app);
+		myfile << "\n Score de ";
 		myfile << pseudo;
-		myfile << " pour le niveau ";
+		myfile << " / niveau ";
 		myfile << niveau ;
-		myfile <<  " est : " ;
+		myfile <<  " / est : " ;
 
 		 myfile.close();
 		///////NIVEAU//////////
@@ -73,7 +73,7 @@ switch(choix){
 		printf("Lancement du niveau : %d\n", niveau);
 
 
-  sleep(2);
+  sleep(1);
 
 startNIVEAU1();
 }
@@ -83,6 +83,7 @@ if(niveau == 2){
 printf("Lancement du niveau : %d\n", niveau);
 
 sleep(1);
+
 
 startNIVEAU2();
 
@@ -180,8 +181,33 @@ case 2 : {
   break;
 
 
+	case 5 : {
+    printf("Ouverture du fichier score.txt \n");
+    sleep(2);
+    ifstream fichier4("score.txt", ios::in);  // on ouvre en lecture
+    if(fichier4){
+			int cmpt = 0 ;
+
+            while(getline(fichier4, ligne)&& cmpt <11)  // tant que l'on peut mettre la ligne dans "contenu"
+            {//<11 pour pouvoir afficher 5 ligne en coptant les sauts de lignes
+                    cout << ligne << endl;  // on l'affiche
+
+										cmpt ++;
+
+
+            }
+            fichier4.close();
+    }
+         else{
+               cerr << "Impossible d'ouvrir le fichier !" << endl;}
+             }
+  break;
+
+
+
+
 }
-if(choix > 4){
+if(choix > 5){
   printf("Le choix numéro : %d n'existe pas.\n", choix);
 }
 	return 0;

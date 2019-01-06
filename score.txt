@@ -1,12 +1,363 @@
 
- Le score du joueur : testscore pour le niveau 1 est : 47
- ---------------------------------------
- Le score du joueur : testscore2 pour le niveau 1 est : 43
- ---------------------------------------
- Le score du joueur : testscore3 pour le niveau 2 est : 56
- ---------------------------------------
- Le score du joueur : testscore3 pour le niveau 3 est : 1
- ---------------------------------------
+ Score 1 / niveau 1 / est : 2
 
- Le score du joueur : score3 pour le niveau 3 est : 1
+ Score 1 / niveau 1 / est : 8
+
+ Score 888 / niveau 1 / est : 27
+
+ Score 5878 / niveau 1 / est : 47
+
+ Score 222 / niveau 1 / est : 47
+
+ Score 587 / niveau 1 / est : 28
+
+ Score 14 / niveau 1 / est : 47
+
+ Score 888 / niveau 1 / est : 41
+
+ Score 55 / niveau 1 / est : 47
+
+ Score 555 / niveau 1 / est : 27
+
+ Score 8888 / niveau 1 / est : 28
+
+ Score 99997 / niveau 1 / est : 47
+
+ Score 5 / niveau 1 / est : 28
+
+ Score 9 / niveau 1 / est : 34
+
+ Score 999 / niveau 1 / est : 34
+
+ Score 999 / niveau 1 / est : 47
+
+ Score 77 / niveau 1 / est : 47
+
+ Score 978 / niveau 1 / est : 28
+
+ Score 4 / niveau 1 / est : 18
+
+ Score 777 / niveau 1 / est : 47
+
+ Score 555 / niveau 1 / est : 41
+
+ Score 44 / niveau 1 / est : 28
+
+ Score 888 / niveau 1 / est : 47
+
+ Score 1 / niveau 1 / est : 27
+
+ Score 4 / niveau 1 / est : 47
+
+ Score 1 / niveau 1 / est : 8
+
+ Score 1 / niveau 1 / est : 26
+
+ Score 4 / niveau 1 / est : 41
+
+ Score sssssss / niveau 1 / est : 8
+
+ Score 444 / niveau 1 / est : 19
+
+ Score 147 / niveau 1 / est : 47
+
+ Score 578 / niveau 1 / est : 8
+
+ Score 1 / niveau 1 / est : 2
+
+ Score 444 / niveau 1 / est : 17
+
+ Score 444 / niveau 1 / est : 19
+
+ Score 555555 / niveau 1 / est : 17
+
+ Score 8888 / niveau 1 / est : 27
+
+ Score 8888 / niveau 1 / est : 20
+
+ Score 1 / niveau 1 / est : 27
+
+ Score 8888 / niveau 1 / est : 28
+
+ Score 14568 / niveau 1 / est : 18
+
+ Score 874984 / niveau 1 / est : 34
+
+ Score 444 / niveau 1 / est : 26
+
+ Score dddddddddd / niveau 1 / est : 27
+
+ Score 11ddd / niveau 1 / est : 20
+
+ Score 444 / niveau 1 / est : 28
+
+ Score 555 / niveau 1 / est : 27
+
+ Score 555 / niveau 1 / est : 18
+
+ Score 5555 / niveau 1 / est : 2
+
+ Score 888 / niveau 1 / est : 19
+
+ Score 1 / niveau 1 / est : 10
+
+ Score 1 / niveau 1 / est : 47
+
+ Score 9 / niveau 1 / est : 8
+
+ Score 1 / niveau 1 / est : 28
+
+ Score de 44 / niveau 1 / est : 
+ Score de 1 / niveau 1 / est : 19
+ 
+ Score de 5555 / niveau 1 / est : 47
+ 
+ Score de 1 / niveau 1 / est : 47
+ 
+ Score de 1 / niveau 1 / est : 47
+ 
+ Score de 1 / niveau 1 / est : 47
+ 
+ Score de 1 / niveau 1 / est : 8
+ 18
+ 18
+ 
+ Score de 1 / niveau 1 / est : 40
+ 
+ Score de 1 / niveau 1 / est : 27
+ 
+ Score de 1 / niveau 1 / est : 47
+ 
+ Score de 1 / niveau 2 / est : 36
  ---------------------------------------
+ Score de score1 / niveau 1 / est : 40
+ 
+ Score de score2 / niveau 2 / est : 36
+ 
+ Score de score3 / niveau 2 / est : 42
+ 
+ Score de sc4 / niveau 3 / est : 1
+ 
+ Score de sc5 / niveau 3 / est : 1
+ 
+ Score de 77 / niveau 3 / est : 1
+ 
+ Score de sc5 / niveau 3 / est : 2
+ 
+ Score de 444 / niveau 1 / est : 1
+ 
+ Score de 44 / niveau 1 / est : 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 
+ Score de 1 / niveau 1 / est : 8
+ 

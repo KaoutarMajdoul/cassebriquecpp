@@ -1,0 +1,3 @@
+Afin de compiler le jeu, il faut taper la commande 'make' dans votre terminal puis taper sur la touche Entrée de votre clavier.
+Il vous faudra ensuite écrire la commande ' ./jeu ' pour lancer le jeu.
+Des instructions s'afficheront sur votre terminal par la suite pour vous guider.
