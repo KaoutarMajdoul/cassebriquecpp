@@ -58,7 +58,15 @@ switch(choix){
 		printf("Choisir le niveau : 1 (easy)- 2 (medium) - 3 (hard) \n");
 		cin >> niveau ;
 
+		ofstream myfile;
+		myfile.open ("score.txt", fstream::out | fstream::app);
+		myfile << "\n Score de ";
+		myfile << pseudo;
+		myfile << " / niveau ";
+		myfile << niveau ;
+		myfile <<  " / est : " ;
 
+		 myfile.close();
 		
 		if (niveau == 1 ){
 		printf("Lancement du niveau : %d\n", niveau);
