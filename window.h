@@ -31,16 +31,8 @@ enum Color {
   BRED,    // couleur fond = rouge,   couleur texte = noir
 };
   void init_colors(void);
-//
-// //
-// void moveBallx(int x, bool &minus);
-// void moveBally(int y, bool &minus);
-void sortScore(int score[], string names[]);
-void printScore(int score[], string names[]);
-int overallScore(int block, int miss);
-int exp(int a, int b);
-void init_paddle(int paddle, int paddley, int paddlex);
-void init_briques(int brique, int briquey, int briquex);
+
+
 
 // fonction pour demarrer le mode console graphique
 void startProgramX();
@@ -51,23 +43,17 @@ class Window {
  private:
   int height,width,startx,starty;
   WINDOW* win, *frame;
-  // Color colorwin, colorframe;
+  Color colorwin, colorframe;
   char bord;
   void update() const;
 
  public:
- // void setHauteur(int h);
-  // constructeur d'un fenetre de hauteur=h, largeur=w dont le coin superieur gauche
-  // a pour coordonnée (x,y), le caractère c est utilisé pour définir la bordure
+
   Window(int h,int w, int x, int y, char c='+');
 
   ~Window();
 
-  // fonction permettant d'afficher une variable s de type (string ou char)
-  // à la position (x,y) dans la fenetre.
-  // si un couleur est spécifié l'affichage utilise cette couleur, sinon la couleur de la fenêtre est utilisée
-  // void print(int x, int y, std::string s, Color c) const;
-  // void print(int x, int y, char s, Color c) const;
+
   void print(int x, int y, std::string s) const;
   void print(int x, int y, char s) const;
   void init_colors(void);
@@ -77,12 +63,12 @@ class Window {
   int getY() const;        // récupère l'ordonnée du coin supérieur gauche de la fenêtre
   int getHauteur() const ; // récupère la hauteur de la fenêtre
   int getLargeur() const ; // récupère la largeur de la fenêtre
-  //
-  //
-  // Color getCouleurBordure() const; // récupère la couleur de la bordure
-  // Color getCouleurFenetre() const; // récupère la couleur de la fenêtre
-  // void setCouleurBordure(Color);   // modifie la couleur de la bordure
-  // void setCouleurFenetre(Color);   // modifie la couleur de la fenêtre (ATTENTION, tout le contenu de la fenêtre prend la couleur)
+
+
+  Color getCouleurBordure() const; // récupère la couleur de la bordure
+  Color getCouleurFenetre() const; // récupère la couleur de la fenêtre
+  void setCouleurBordure(Color);   // modifie la couleur de la bordure
+  void setCouleurFenetre(Color);   // modifie la couleur de la fenêtre (ATTENTION, tout le contenu de la fenêtre prend la couleur)
 
   void clear() const; // enleve tout le contenu de la fenêtre
 
