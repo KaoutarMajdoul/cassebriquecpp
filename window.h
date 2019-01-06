@@ -34,11 +34,7 @@ enum Color {
 
 
 
-// fonction pour demarrer le mode console graphique
-void startProgramX();
-// fonction pour arreter le mode console graphique
-void stopProgramX();
-void printn(int x); // void setHauteur(int h);
+
 class Window {
  private:
   int height,width,startx,starty;
