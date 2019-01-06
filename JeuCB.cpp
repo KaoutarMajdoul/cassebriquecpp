@@ -48,7 +48,7 @@ cin>>pseudo;
 
 
 
-printf("Taper sur :\n 1 pour commencer le jeu,\n 2 pour l'aide, \n 3 pour la version, \n 4 pour les auteurs, \n 5 pour les derniers scores.\n" );
+printf("Taper sur :\n 1 pour commencer le jeu,\n 2 pour l'aide, \n 3 pour la version, \n 4 pour les auteurs, \n 5 pour les premiers scores.\n" );
 cin >>choix ;
 
 
