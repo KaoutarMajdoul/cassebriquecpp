@@ -15,9 +15,6 @@
 using namespace std ;
 
 
-void printn(int x){
-printf("hello : %d\n", x);
-}
 
 
 void init_colors(void)
@@ -40,30 +37,6 @@ void init_colors(void)
   init_pair(BRED,     COLOR_BLACK, COLOR_RED);
 }
 
-
-void init_paddle(int paddle, int paddley, int paddlex){
-
-  for (paddle = 0; paddle < 6; paddle++) {
-    mvaddch(paddley, paddlex+paddle, 'X');
-  }
-}
-
-void init_briques(int brique, int briquey, int briquex){
-
-  for (brique = 0; brique < 6; brique++) {
-    mvaddch(briquey, briquex+brique, 'B');
-    mvaddch(briquey+rand()%10+0, briquex+brique+rand()%60+0, 'B');
-    mvaddch(briquey+rand()%10+0, briquex+brique+rand()%60+0, 'B');
-  }
-}
-
-
-void stopProgramX() {
-  refresh();
-  getch();
-  endwin();
-  cout << "Partie terminée !" << endl;
-}
 
 
 
